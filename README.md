@@ -347,7 +347,7 @@
 ?>
 
 <form action="" method="post">
-    <label for="fullname">Fullname</label><br />
+    <label for="fullname"><em>Fullname</em></label><br />
     <input type="text" name="fullname" id="fullname"><br />
     <label for="age">Age</label><br />
     <input type="text" name="age" id="age"><br />

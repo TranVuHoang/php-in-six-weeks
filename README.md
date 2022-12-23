@@ -159,6 +159,7 @@
     $arr[] = 'hello';
 
 - `Mảng không tuần tự`
+
   - Syntax: $arr = ['key1' => 'value1', 'key2' => 'value2'];
   - Ex: $arr = ['fullname' => 'Tran Vu Hoang, 'age' => 25];
   - key là kiểu số hoạc chuỗi
@@ -166,16 +167,191 @@
   - Thêm phần tử vào mảng: $arr['address'] = 'Thai Binh';
 
 - `Mảng đa chiều`
-    - Ex:
-        $arr = [
-            'fullname'  => 'Tran Vu Hoang',
-            'age'  => 25,
-            'point'  => [
-                'math_point'        => 8.25,
-                'physical_point'    => 8.25,
-                'chemistry_point'   => 6.75
-            ]
-        ];
-    - Mảng đa chiều là mảng mà phần tử bên trong nó có thể là 1 mảng nữa.
+  - Ex:
+    $arr = [
+    'fullname' => 'Tran Vu Hoang',
+    'age' => 25,
+    'point' => [
+    'math_point' => 8.25,
+    'physical_point' => 8.25,
+    'chemistry_point' => 6.75
+    ]
+    ];
+  - Mảng đa chiều là mảng mà phần tử bên trong nó có thể là 1 mảng nữa.
 
 ## 8. Câu điều kiện
+
+- Có 3 loại câu điều kiện
+
+- if...:
+
+  - if (condition) {
+    // nếu điều kiện đúng => thực hiện lệnh trong vòng ì {}
+    }
+
+- if..else:
+
+  - if (condition) {
+    // nếu điều kiện đúng => thực hiện lệnh trong vòng if {}
+    } else {
+    // nếu điều kiện sai -> thực hiện lệnh trong else {}
+    }
+
+- if ... elseif... else:
+
+  - if (conditon1) {
+    // nếu điều kiện đúng -> thực hiện lệnh trong vòng lặp if()
+    } elseif (condition2) {
+    // nếu điều kiện trong vòng if sai -> thực hiện lệnh trong vòng lặp elseif().
+    } else {
+    // ngược lại điều kiện trong vòng elseif sai -> thực hiện lệnh trong vòng lặp else
+    }
+
+- `Câu điều kiện switch case`
+
+  - switch case được sinh ra để hỗ trợ biểu thức if else khi bài toán có quá nhiều điều kiện
+  - syntax:
+
+    - switch (n) {
+      case 1:
+      // code
+      break;
+      case 2:
+      //code
+      break;
+      }
+
+      default:
+      // code
+      break;
+      }
+
+### Hàm căn bản cần biết
+
+## 9. Hàm trong PHP
+
+- Hàm là chương trình thực hiện một tác vụ cụ thể. Chúng thực chất là những đoạn chương trình nhỏ giúp giải quyết 1 vấn đề lớn. Hàm là 1 phương pháp lập trình hướng thủ tục trong ngôn ngữ PHP và các ngôn ngữ bậc cao khác.
+
+- Hàm giúp lập trình kiểm soát code 1 cách mạch lạc, không phải viết lại code cho các chức năng giống nhau.
+
+- Có 2 loại hàm:
+
+  - Hàm có giá trị trả về(có return)
+  - Hàm không có giá trị trả về(hàm k có return)
+
+- Syntax:
+  - function functionName() {
+    // lệnh thực thi
+    }
+- Ex:
+  function showMyName() {
+  echo 'Hoàng';
+  }
+
+  function getMyName() {
+  return 'Hoàng';
+  }
+
+  showMyName();
+  var_dump(getMyName);
+
+- `Tham trị và tham chiếu trong hàm`
+
+  - Tham trị: là các biến được truyền vào hàm đó để xử lý.
+    -Ex:
+    function showValue() {
+    var_dump($value);
+    }
+    showValue();
+  - Tham chiếu: Chỉ truyền vào địa chỉ bộ nhớ của biến đó. Vì vậy khi giá trị biến được truyền vào trong hàm thay đổi sẽ kéo theo biến bên ngoài cũng thay đổi giá trị theo.
+  - Ex:
+    $x = 10;
+    function changeValue(&$value) {
+    $value = 20;
+    }
+    changeValue(30);
+    var_dump($value);
+
+- `Require, include trong PHP`
+
+  - Trong PHP, để có thể chèn nội dung của 1 file khác (thông thường là file php) từ bên ngoài vào file PHP hiện tại, chúng ta dùng hàm require(); hoặc hàm include(); Việc này nhằm tiết kiệm thời gian và tính nhất quán, giúp cho việc code ứng dụng nhanh hơn.
+
+  - Sự khác nhau giữa required và include:
+
+    - `require`: Sau khi chèn file nếu có xảy ra lỗi thì sẽ xuất ra thông báo lỗi và không chạy các đoạn code tiếp theo.
+    - `include`: Sau khi chèn file nếu code bị lỗi thì chương trình vẫn chạy các đoạn code tiếp theo
+
+  - Ngoài ra còn có `include_once` và `require_one` chức năng tương tự như `include` và `require` nhưng file chèn vào sẽ chỉ chèn 1 lần duy nhất.
+
+## 10. Vòng lặp trong PHP
+
+- `Vòng lặp for`
+
+  - Lặp với số lần xác định. Ví dụ bạn muốn in số từ 1->100 thì sẽ dùng vòng lặp này vì chúng ta có thể đặt điều kiện cho nó dừng lại khi lặp 1000 lần.
+  - Syntax:
+    for ($i = 0; $i < 100; $i++) {
+    echo $i;
+    }
+
+- `Vòng lặp while`
+
+  - Lặp 1 hành động dựa theo 1 điều kiện cụ thể mà nó trả về là true
+
+- Vòng lặp `do while`
+
+  - Vòng lặp này tương tự như do while, nhưng n sẽ chạy lệnh ít nhất 1 lần trước khi lặp.
+
+- Vòng lặp `foreach`
+
+  - Vòng lặp này để duyệt mảng, lặp các khóa và giá trị của mảng
+  - vd:
+    $colors = ['red', 'green', 'blue'];
+
+    foreach ($colors as $color) {
+    echo $color . '<br/>';
+    }
+
+## 11. $\_GET và $\_POST trong PHP
+
+- POST, GET là các phương thức truyền dữ liệu từ client lên server
+- Sử dụng 2 biến global: $\_POST, $\_GET để lấy thông tin về 2 phương thức trên.
+- Sử dụng để lấy dữ liệu từ form gửi lên.
+
+- Phương thức `GET`
+
+  - Phương thức `GET` để gửi dữ liệu lên server thông qua url
+  - Phương thức get được giới hạn gửi tối đa 1024 ký tự.
+  - Không bao giờ sử dụng phương thức GET nếu gửi password hoặc thông tin nhạy cảm lên server vì lúc này password sẽ bị lộ trên url
+  - GET không thể gửi dữ liệu nhị phân, ví dụ như hình ảnh hoặc tài liệu word lên server.
+  - Sử dụng biến global $\_GET để lấy dữ liệu
+
+- Phương thức `POST`
+  - Phương thức `POST` không có bất kỳ hạn chế nào về kích thước dữ liệu sẽ gửi
+  - Phương thức `POST` có thể sử dụng để gửi dữ liệu nhị phân.
+  - Dữ liệu được gửi bởi phương thức POST thông qua http header, vì vậy việc bảo mật phụ thuộc vào giao thức http. Bằng việc sử dụng secure http, bạn có thể chắc chắn răng thông tin của mình là an toàn.
+  - Sử dụng biến global $\_POST để lấy dữ liệu.
+
+## 12. Vd $\_GET và $\_POST
+
+- if (isset($_POST['form_login'])) {
+    $fullname = !empty($\_POST['fullname']) ? trim($_POST['fullname']) : '';
+    $age = !empty($\_POST['age']) ? trim($\_POST['age']) : '';
+
+      echo 'Welcome: ' . $fullname;
+      echo '<br/>';
+      echo 'Age: ' . $age;
+      die();
+
+  }
+
+?>
+
+<form action="" method="post">
+    <label for="fullname">Fullname</label><br />
+    <input type="text" name="fullname" id="fullname"><br />
+    <label for="age">Age</label><br />
+    <input type="text" name="age" id="age"><br />
+
+    <input type="submit" name="form_login" value="submit">
+
+</form>

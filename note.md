@@ -36,4 +36,7 @@
 - 9. `print_r();`
   - Xuất ra cấu trúc mảng
 
-- 10. 
+- 10. `require 'ten_file.php';`
+  - để truy xuất đến file và đưa vào trong file hiện tại
+
+- 11.
